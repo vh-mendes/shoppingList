@@ -1,0 +1,74 @@
+.fotoVitor {
+  width: 175px;
+  height: 175px;
+  border-radius: 95px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-family: "Poppins", serif;
+  font-weight: 800;
+  font-style: normal;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.descricao {
+  text-align: left;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.8;
+}
+
+
+.RedesSociais {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.btnLinkedin {
+  display: flex;
+  align-items: center;
+  background-color: #1568c4;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  gap: 5px; 
+}
+
+.btnGitHub {
+  display: flex;
+  align-items: center;
+  background-color: #282828; 
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  gap: 5px; 
+}
+
+.btnIcon {
+  width: 50px; 
+  height: 50px;
+}
+
+.linkRedesSociais {
+  text-decoration: none;
+}
