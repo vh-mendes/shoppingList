@@ -1,4 +1,4 @@
-import "../styles/Biografia.css";
+import "../styles/biografia.css";
 
 function Biografia() {
   return (
