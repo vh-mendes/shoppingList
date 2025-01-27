@@ -10,7 +10,7 @@ function Biografia() {
         alt="Foto de Vítor Hugo"
       />
       <p className="descricao">
-        Olá! Meu nome é Vítor Hugo Mendes, nascido em 2005, atualmente atuo como
+        Olá! Meu nome é Vítor Hugo Mendes, nascido em 2005, atualmente trabalho como
         analista de suporte do ERP Protheus, da TOTVS, na empresa Cooprata. Sou
         estudante de análise e desenvolvimento de sistemas e apaixonado pela
         tecnologia. 
