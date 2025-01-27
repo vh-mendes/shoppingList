@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Lista from "./pages/Lista";
 import Biografia from "./pages/Biografia";
 import "./styles/navbar.css"; 
+import './styles/global.css';
+
 
 
 function App() {
