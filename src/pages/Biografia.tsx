@@ -25,7 +25,7 @@ function Biografia() {
         que goste! 😉
       </p>
       <div className="RedesSociais"> 
-      <a className="linkRedesSociais" href="https://www.linkedin.com/in/v%C3%ADtor-hugo-mendes-163a91336/" target="_blank" rel="noopener noreferrer">
+      <a className="linkRedesSociaisLinkedin" href="https://www.linkedin.com/in/v%C3%ADtor-hugo-mendes-163a91336/" target="_blank" rel="noopener noreferrer">
       <button className="btnLinkedin">
         <img
           src="/images/linkedin-icon.png"
@@ -35,7 +35,7 @@ function Biografia() {
         LinkedIn
       </button>
       </a>
-      <a className="linkRedesSociais" href="https://github.com/vh-mendes" target="_blank" rel="noopener noreferrer">
+      <a className="linkRedesSociaisGit" href="https://github.com/vh-mendes" target="_blank" rel="noopener noreferrer">
       <button className="btnGitHub">
         <img
           src="/images/github-icon.png"
