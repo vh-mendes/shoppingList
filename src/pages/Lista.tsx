@@ -1,8 +1,12 @@
+import { Title } from "../components/Title";
+import { ShoppingList } from "../components/ShoppingList";
+
 function Lista() {
+
     return (
       <div>
-        <h1>Lista de Compras</h1>
-        <p>Esta é a página para gerenciar sua lista de compras.</p>
+        <Title text="Lista de Compras" />
+        <ShoppingList />
       </div>
     );
   }

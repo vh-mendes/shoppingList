@@ -1,9 +1,11 @@
 import "../styles/biografia.css";
+import { Title } from "../components/Title";
+
 
 function Biografia() {
   return (
     <div className="container">
-      <h1 className="title">Quem sou eu?</h1>
+      <Title text="Quem sou eu" />
       <img
         className="fotoVitor"
         src="/images/foto-bio.jpeg"
