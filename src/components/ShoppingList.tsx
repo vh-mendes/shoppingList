@@ -11,7 +11,7 @@ export function ShoppingList() {
   const [sucess, setSucess] = useState<string>("");
 
   const RemoveItem = (index: number) => {   
-    setItems(items.filter((item, i) => i !== index)); //Remove o item da lista
+    setItems(items.filter((_, i) => i !== index)); //Remove o item da lista
   }
   const RemoveAllList = () => {
      //Remove todos os itens da lista
