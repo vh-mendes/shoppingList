@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Alert from "@mui/material/Alert";
+import { Button } from "@mui/material";
+
 
 export function ShoppingList(){ 
   const [items, setItems] = useState<{ id: number; nome: string; quantidade: number; comprado: boolean; }[]>(
@@ -23,6 +25,7 @@ export function ShoppingList(){
     //Remove todos os itens da lista de não comprados
       if (itemsNaoComprados.length > 0) {
         setItems(items.filter((item) => item.comprado)); 
+        setSucess ("Lista limpa com sucesso");
       } else { //Se não houver itens não comprados, exibe o erro
         setError("Não há itens na lista para remover");
         //setTimeout(() => setError(""), 2000); // Limpa a mensagem de erro após 3 segundos
@@ -35,6 +38,7 @@ export function ShoppingList(){
     //Remove todos os itens da lista de não comprados
     if (itemsComprados.length > 0) {
       setItems(items.filter((item) => !item.comprado));
+      setSucess ("Lista limpa com sucesso");
     } else { //Se não houver itens comprados, exibe o erro
       setError("Não há itens na lista para remover");
       //setTimeout(() => setError(""), 2000); // Limpa a mensagem de erro após 3 segundos
@@ -62,11 +66,6 @@ export function ShoppingList(){
       //setTimeout(() => setError(""), 2000); // Limpa a mensagem de erro após 3 segundos
       return; //Se a quantidade for zero, não adiciona e aborta
     }
-    if (newQuantity < 0) {
-      setError("A quantidade não pode ser negativa");
-      //setTimeout(() => setError(""), 2000); // Limpa a mensagem de erro após 3 segundos
-      return; //Se a quantidade for negativa, não adiciona e aborta
-    }
     setItems([...items, { id: Date.now(), nome: newItem, quantidade: newQuantity, comprado: false }]); //Adiciona o item na lista
     setNewItem(""); //Reseta o campo de nome para o padrão
     setNewQuantity(1); //Reseta o campo de quantidade para o padrão
@@ -76,9 +75,9 @@ export function ShoppingList(){
 
   return (
     <div>
-      {error && <Alert severity="error">{error}</Alert>}{" "}
+      {error && <Alert severity="error">{error}</Alert>}
       {/*Se houver erro, exibe a mensagem de erro*/}
-      {sucess && <Alert severity="success">{sucess}</Alert>}{" "}
+      {sucess && <Alert severity="success">{sucess}</Alert>}
       {/*Se houver erro, exibe a mensagem de erro*/}
       <input
         type="text"
@@ -92,7 +91,7 @@ export function ShoppingList(){
         onChange={(e) => setNewQuantity(Number(e.target.value))}
         min="1"
       />
-      <button onClick={AddItem}>Adicionar</button>
+      <Button variant="contained" color="primary" onClick={AddItem}>Adicionar</Button>
       <h2>Itens na Lista</h2><button onClick={RemoveList}>Limpar Lista</button>
       <ul>
         {itemsNaoComprados.map((item, id) => (
