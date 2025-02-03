@@ -13,7 +13,10 @@ export function ShoppingList() {
   const [sucess, setSucess] = useState<string>("");
 
   const RemoveItem = (id: number) => {
+    setError("");
+    setSucess("");
     setItems(items.filter((item) => item.id !== id)); //Remove o item da lista
+    setSucess("Item removido com sucesso");
   };
 
   const itemsNaoComprados = items.filter((item) => !item.comprado); //Filtra os itens não comprados
