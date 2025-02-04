@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
-import Alert from "@mui/material/Alert";
-import { Button } from "@mui/material";
+import { Button, Alert } from "@mui/material";
+import ShoppingCartRounded from "@mui/icons-material/ShoppingCartRounded";
+import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import AddIcon from "@mui/icons-material/Add";
 import "../styles/listStyles.css";
 
 export function ShoppingList() {
@@ -117,14 +120,23 @@ export function ShoppingList() {
       />
       <Button
         variant="contained"
+        sx={{
+          backgroundColor: "#f6c01c",
+          "&:hover": { backgroundColor: "#ffb600" },
+          color: "#000000",
+        }}
+        startIcon={<HorizontalRuleIcon />}
         onClick={buttonDecrement}
-        color={newQuantity === 1 ? "secondary" : "primary"}
         disabled={newQuantity === 1}
       ></Button>
-
       <Button
         variant="contained"
-        color="primary"
+        sx={{
+          backgroundColor: "#f6c01c",
+          "&:hover": { backgroundColor: "#ffb600" },
+          color: "#000000",
+        }}
+        startIcon={<AddIcon />}
         onClick={buttonIncrement}
       ></Button>
       <input
@@ -133,11 +145,31 @@ export function ShoppingList() {
         onChange={(e) => setNewQuantity(Number(e.target.value))}
         min="1"
       />
-      <Button variant="contained" color="primary" onClick={AddItem}>
+      <Button
+        variant="contained"
+        sx={{
+          backgroundColor: "#f6c01c",
+          "&:hover": { backgroundColor: "#ffb600" },
+          color: "#000000",
+        }}
+        startIcon={<ShoppingCartRounded />}
+        onClick={AddItem}
+      >
         Adicionar
       </Button>
       <h2>Itens na Lista</h2>
-      <button onClick={RemoveList}>Limpar Lista</button>
+      <Button
+        variant="contained"
+        sx={{
+          backgroundColor: "#f6c01c",
+          "&:hover": { backgroundColor: "#ffb600" },
+          color: "#000000",
+        }}
+        startIcon={<DeleteForeverIcon />}
+        onClick={RemoveList}
+      >
+        Limpar Lista{" "}
+      </Button>
       <ul>
         {itemsNaoComprados.map((item, id) => (
           <li key={id}>
@@ -158,7 +190,7 @@ export function ShoppingList() {
         {itemsComprados.map((item, id) => (
           <li className="itensComprados" key={id}>
             {item.nome} - Quantidade: {item.quantidade}
-            <button onClick={() => RemoveItem(item.id)}>Remover</button>{" "}
+            <button onClick={() => RemoveItem(item.id)}> Remover</button>{" "}
             <button onClick={() => ItemComprado(item.id)}>
               {item.comprado ? "Desmarcar" : "Marcar como Comprado"}
             </button>
