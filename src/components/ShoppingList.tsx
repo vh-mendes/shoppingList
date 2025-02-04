@@ -2,11 +2,10 @@ import { useState } from "react";
 import Alert from "@mui/material/Alert";
 import { Button } from "@mui/material";
 
-
-export function ShoppingList(){ 
-  const [items, setItems] = useState<{ id: number; nome: string; quantidade: number; comprado: boolean; }[]>(
-    []
-  ); //Armazeno os itens da lista
+export function ShoppingList() {
+  const [items, setItems] = useState<
+    { id: number; nome: string; quantidade: number; comprado: boolean }[]
+  >([]); //Armazeno os itens da lista
   const [newItem, setNewItem] = useState<string>("");
   const [newQuantity, setNewQuantity] = useState<number>(1);
   const [error, setError] = useState<string>("");
@@ -23,13 +22,14 @@ export function ShoppingList(){
     setError("");
     setSucess("");
     //Remove todos os itens da lista de não comprados
-      if (itemsNaoComprados.length > 0) {
-        setItems(items.filter((item) => item.comprado)); 
-        setSucess ("Lista limpa com sucesso");
-      } else { //Se não houver itens não comprados, exibe o erro
-        setError("Não há itens na lista para remover");
-        //setTimeout(() => setError(""), 2000); // Limpa a mensagem de erro após 3 segundos
-      }
+    if (itemsNaoComprados.length > 0) {
+      setItems(items.filter((item) => item.comprado));
+      setSucess("Lista limpa com sucesso");
+    } else {
+      //Se não houver itens não comprados, exibe o erro
+      setError("Não há itens na lista para remover");
+      //setTimeout(() => setError(""), 2000); // Limpa a mensagem de erro após 3 segundos
+    }
   };
 
   const RemoveListComprado = () => {
@@ -38,18 +38,21 @@ export function ShoppingList(){
     //Remove todos os itens da lista de não comprados
     if (itemsComprados.length > 0) {
       setItems(items.filter((item) => !item.comprado));
-      setSucess ("Lista limpa com sucesso");
-    } else { //Se não houver itens comprados, exibe o erro
+      setSucess("Lista limpa com sucesso");
+    } else {
+      //Se não houver itens comprados, exibe o erro
       setError("Não há itens na lista para remover");
       //setTimeout(() => setError(""), 2000); // Limpa a mensagem de erro após 3 segundos
     }
   };
 
-  const ItemComprado = (id: number) => { 
-    setItems(items.map(item  => 
-      item.id === id ? { ...item, comprado: !item.comprado } : item
-  )); //Marca o item como comprado
-};
+  const ItemComprado = (id: number) => {
+    setItems(
+      items.map((item) =>
+        item.id === id ? { ...item, comprado: !item.comprado } : item
+      )
+    ); //Marca o item como comprado
+  };
 
   const AddItem = () => {
     //Reseta os alertas antes de qualquer coisa
@@ -66,13 +69,35 @@ export function ShoppingList(){
       //setTimeout(() => setError(""), 2000); // Limpa a mensagem de erro após 3 segundos
       return; //Se a quantidade for zero, não adiciona e aborta
     }
-    setItems([...items, { id: Date.now(), nome: newItem, quantidade: newQuantity, comprado: false }]); //Adiciona o item na lista
+
+    if (newQuantity < 0) {
+      setError("A quantidade não pode ser negativa");
+      //setTimeout(() => setError(""), 2000); // Limpa a mensagem de erro após 3 segundos
+      return; //Se a quantidade for negativa, não adiciona e aborta
+    }
+
+
+    setItems([
+      ...items,
+      {
+        id: Date.now(),
+        nome: newItem,
+        quantidade: newQuantity,
+        comprado: false,
+      },
+    ]); //Adiciona o item na lista
     setNewItem(""); //Reseta o campo de nome para o padrão
-    setNewQuantity(1); //Reseta o campo de quantidade para o padrão
+    setNewQuantity(0); //Reseta o campo de quantidade para o padrão
     setSucess("Item adicionado com sucesso"); //Reseta o campo de erro para o padrão
     //setTimeout(() => setSucess(""), 2000); // Limpa a mensagem de sucesso após 3 segundos
   };
 
+  // Para aumentar e diminuir a quantidade do novo item
+  const buttonIncrement = () => {
+    setNewQuantity(newQuantity + 1);
+  };
+  const buttonDecrement = () => setNewQuantity((prev) => Math.max(1, prev - 1)); 
+  
   return (
     <div>
       {error && <Alert severity="error">{error}</Alert>}
@@ -87,36 +112,64 @@ export function ShoppingList(){
       />
       <input
         type="number"
-        value={newQuantity}
+        value={newQuantity === 0 ? "" : newQuantity} // Se for 0, fica vazio
         onChange={(e) => setNewQuantity(Number(e.target.value))}
-        min="1"
+        min="0"
       />
-      <Button variant="contained" color="primary" onClick={AddItem}>Adicionar</Button>
-      <h2>Itens na Lista</h2><button onClick={RemoveList}>Limpar Lista</button>
+      <Button
+        variant="contained"
+        onClick={buttonDecrement}
+        color={newQuantity === 1 ? "secondary" : "primary"}
+        disabled={newQuantity === 1}
+      ></Button>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={buttonIncrement}
+      ></Button>
+      <Button variant="contained" color="primary" onClick={AddItem}>
+        Adicionar
+      </Button>
+      <h2>Itens na Lista</h2>
+      <button onClick={RemoveList}>Limpar Lista</button>
       <ul>
         {itemsNaoComprados.map((item, id) => (
           <li key={id}>
-            {item.nome} - Quantidade: {item.quantidade}
+            {item.nome}
+            <input type="number" value={item.quantidade}></input>
+            <Button
+              variant="contained"
+              onClick={buttonDecrement}
+              color={item.quantidade === 1 ? "secondary" : "primary"}
+              disabled={item.quantidade === 1}
+            ></Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={buttonIncrement}
+            ></Button>
             <button onClick={() => RemoveItem(item.id)}>Remover</button>{" "}
             <button onClick={() => ItemComprado(item.id)}>
-            {item.comprado ? "Desmarcar" : "Marcar como Comprado"}
+              {item.comprado ? "Desmarcar" : "Marcar como Comprado"}
             </button>
             {/* Passa o índice correto */}
           </li>
         ))}
       </ul>
 
-      <h2>Itens Comprados</h2><button onClick={RemoveListComprado}>Limpar Lista</button>
+      <h2>Itens Comprados</h2>
+      <button onClick={RemoveListComprado}>Limpar Lista</button>
       <ul>
         {itemsComprados.map((item, id) => (
           <li key={id}>
             {item.nome} - Quantidade: {item.quantidade}
             <button onClick={() => RemoveItem(item.id)}>Remover</button>{" "}
-            <button onClick={() => ItemComprado(item.id)}>{item.comprado ? "Desmarcar" : "Marcar como Comprado"}</button>
-            </li>
+            <button onClick={() => ItemComprado(item.id)}>
+              {item.comprado ? "Desmarcar" : "Marcar como Comprado"}
+            </button>
+          </li>
         ))}
-      </ul>          
+      </ul>
     </div>
   );
 }
-
