@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Button, Alert } from "@mui/material";
+import { Button, Alert, TextField } from "@mui/material";
 import ShoppingCartRounded from "@mui/icons-material/ShoppingCartRounded";
-import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import AddIcon from "@mui/icons-material/Add";
+import { ClearListButton } from "./ClearListButton";
+import { DecrementButton } from "./DecrementButton";
+import { IncrementButton } from "./IncrementButton";
 import "../styles/listStyles.css";
 
 export function ShoppingList() {
@@ -118,33 +118,13 @@ export function ShoppingList() {
         onChange={(e) => setNewItem(e.target.value)}
         placeholder="Digite para adicionar um item"
       />
-      <Button
-        variant="contained"
-        sx={{
-          backgroundColor: "#f6c01c",
-          "&:hover": { backgroundColor: "#ffb600" },
-          color: "#000000",
-        }}
-        startIcon={<HorizontalRuleIcon />}
-        onClick={buttonDecrement}
-        disabled={newQuantity === 1}
-      ></Button>
-      <Button
-        variant="contained"
-        sx={{
-          backgroundColor: "#f6c01c",
-          "&:hover": { backgroundColor: "#ffb600" },
-          color: "#000000",
-        }}
-        startIcon={<AddIcon />}
-        onClick={buttonIncrement}
-      ></Button>
-      <input
+      <DecrementButton onClear={buttonDecrement} disabled={newQuantity === 1} />
+      <TextField
         type="number"
         value={newQuantity === 0 ? "" : newQuantity} // Se for 0, fica vazio
         onChange={(e) => setNewQuantity(Number(e.target.value))}
-        min="1"
       />
+      <IncrementButton onClear={buttonIncrement} />
       <Button
         variant="contained"
         sx={{
@@ -157,19 +137,7 @@ export function ShoppingList() {
       >
         Adicionar
       </Button>
-      <h2>Itens na Lista</h2>
-      <Button
-        variant="contained"
-        sx={{
-          backgroundColor: "#f6c01c",
-          "&:hover": { backgroundColor: "#ffb600" },
-          color: "#000000",
-        }}
-        startIcon={<DeleteForeverIcon />}
-        onClick={RemoveList}
-      >
-        Limpar Lista{" "}
-      </Button>
+      <ClearListButton text="Limpar Lista" onClear={RemoveList} />
       <ul>
         {itemsNaoComprados.map((item, id) => (
           <li key={id}>
@@ -179,13 +147,12 @@ export function ShoppingList() {
             <button onClick={() => ItemComprado(item.id)}>
               {item.comprado ? "Desmarcar" : "Marcar como Comprado"}
             </button>
-            {/* Passa o índice correto */}
           </li>
         ))}
       </ul>
 
       <h2>Itens Comprados</h2>
-      <button onClick={RemoveListComprado}>Limpar Lista</button>
+      <ClearListButton text="Limpar Lista" onClear={RemoveListComprado} />
       <ul>
         {itemsComprados.map((item, id) => (
           <li className="itensComprados" key={id}>
