@@ -11,8 +11,15 @@ export function IncrementButton({ onClear }: IncrementButtonProps) {
       variant="contained"
       sx={{
         backgroundColor: "#f6c01c",
-        "&:hover": { backgroundColor: "#ffb600" },
         color: "#000000",
+        textAlign: "center",
+        alignItems: "center",
+        padding: "10px",
+        "& .MuiButton-startIcon": {
+          display: "flex",
+          marginRight: "4px",
+          fontWeight: "bold"
+        },
       }}
       startIcon={<AddIcon />}
       onClick={onClear} // Chama a função passada como prop

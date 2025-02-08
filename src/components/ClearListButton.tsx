@@ -3,7 +3,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 interface ClearListProps {
   text: string;
-  onClear: () => void; // Recebe a função que será chamada ao clicar
+  onClear: () => void;
 }
 
 export function ClearListButton({ text, onClear }: ClearListProps) {
@@ -12,11 +12,19 @@ export function ClearListButton({ text, onClear }: ClearListProps) {
       variant="contained"
       sx={{
         backgroundColor: "#f6c01c",
-        "&:hover": { backgroundColor: "#ffb600" },
         color: "#000000",
-      }}
+        fontWeight: "bold",
+        fontSize: "14px ",  
+        textTransform: "uppercase", 
+        fontFamily: "'Poppins', sans-serif", 
+        display: "flex",
+        "& .MuiButton-startIcon": {
+          display: "flex",
+          marginRight: "4px",
+        },
+      }}  
       startIcon={<DeleteForeverIcon />}
-      onClick={onClear} // Chama a função passada como prop
+      onClick={onClear}
     >
       {text}
     </Button>

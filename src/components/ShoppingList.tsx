@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
-import { Button, Alert, TextField } from "@mui/material";
-import ShoppingCartRounded from "@mui/icons-material/ShoppingCartRounded";
+import { Alert } from "@mui/material";
+import { AddToListButton } from "./AddToListButton";
 import { ClearListButton } from "./ClearListButton";
 import { DecrementButton } from "./DecrementButton";
 import { IncrementButton } from "./IncrementButton";
+import { InputQuantity } from "./InputQuantity";
+import { InputItem } from "./InputItem";
+import { SubTitle } from "./SubTitle";
 import "../styles/listStyles.css";
 
 export function ShoppingList() {
@@ -108,35 +111,27 @@ export function ShoppingList() {
 
   return (
     <div>
-      {error && <Alert severity="error">{error}</Alert>}
-      {/*Se houver erro, exibe a mensagem de erro*/}
-      {sucess && <Alert severity="success">{sucess}</Alert>}
-      {/*Se houver erro, exibe a mensagem de erro*/}
-      <input
-        type="text"
-        value={newItem}
-        onChange={(e) => setNewItem(e.target.value)}
-        placeholder="Digite para adicionar um item"
-      />
-      <DecrementButton onClear={buttonDecrement} disabled={newQuantity === 1} />
-      <TextField
-        type="number"
-        value={newQuantity === 0 ? "" : newQuantity} // Se for 0, fica vazio
-        onChange={(e) => setNewQuantity(Number(e.target.value))}
-      />
-      <IncrementButton onClear={buttonIncrement} />
-      <Button
-        variant="contained"
-        sx={{
-          backgroundColor: "#f6c01c",
-          "&:hover": { backgroundColor: "#ffb600" },
-          color: "#000000",
-        }}
-        startIcon={<ShoppingCartRounded />}
-        onClick={AddItem}
-      >
-        Adicionar
-      </Button>
+      <div className="alerts">
+        {error && <Alert severity="error">{error}</Alert>}
+        {/*Se houver erro, exibe a mensagem de erro*/}
+        {sucess && <Alert severity="success">{sucess}</Alert>}
+        {/*Se houver sucesso, exibe a mensagem de sucesso*/}
+      </div>
+      <div className="inputItem">
+        <InputItem value={newItem} onChange={setNewItem} />
+      </div>
+      <div className="inputQuantity">
+        <DecrementButton
+          onClear={buttonDecrement}
+          disabled={newQuantity === 1}
+        />
+        <InputQuantity value={newQuantity} onChange={setNewQuantity} />
+        <IncrementButton onClear={buttonIncrement} />
+      </div>
+      <div className="addButonList"> 
+      <AddToListButton text="Adicionar" onClear={AddItem} />
+      </div>
+      <SubTitle text="Itens na Lista" />
       <ClearListButton text="Limpar Lista" onClear={RemoveList} />
       <ul>
         {itemsNaoComprados.map((item, id) => (
@@ -151,7 +146,7 @@ export function ShoppingList() {
         ))}
       </ul>
 
-      <h2>Itens Comprados</h2>
+      <SubTitle text="Itens Comprados" />
       <ClearListButton text="Limpar Lista" onClear={RemoveListComprado} />
       <ul>
         {itemsComprados.map((item, id) => (
