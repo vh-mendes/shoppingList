@@ -28,7 +28,7 @@
   margin-top: 30px; 
   align-items: center;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .subTitleAndClearList {
@@ -59,7 +59,7 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
   max-width: 100%;
-  width: 60%;
+  width: 20%;
 }
 
 .shopping-list-item:hover {
@@ -125,7 +125,7 @@
 }
 
 .shopping-list-item.checked {
-  background-color: #594721; /* Verde claro */
+  background-color: #dfad42; /* Verde claro */
 }
 
 .shopping-list-item.checked .item-name {
@@ -137,8 +137,15 @@
   .shopping-list-item {
     text-align: center;
     padding: 16px;
-    width: 100%;
+    width: 50%;
   }
 }
 
+@media (max-width: 750px) {
+  .shopping-list-item {
+    text-align: center;
+    padding: 16px;
+    width: 50%;
+  }
+}
 
