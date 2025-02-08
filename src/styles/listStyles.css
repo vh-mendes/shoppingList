@@ -13,7 +13,7 @@
   align-items: center;
   text-align: center;
   margin-bottom: 10px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .inputQuantity {
@@ -27,4 +27,12 @@
   margin-top: 30px; 
   align-items: center;
   text-align: center;
+  margin-bottom: 60px;
+}
+
+.subTitleAndClearList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }

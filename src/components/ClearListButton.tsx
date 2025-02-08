@@ -2,11 +2,10 @@ import { Button } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 interface ClearListProps {
-  text: string;
   onClear: () => void;
 }
 
-export function ClearListButton({ text, onClear }: ClearListProps) {
+export function ClearListButton({ onClear }: ClearListProps) {
   return (
     <Button
       variant="contained"
@@ -14,19 +13,17 @@ export function ClearListButton({ text, onClear }: ClearListProps) {
         backgroundColor: "#f6c01c",
         color: "#000000",
         fontWeight: "bold",
-        fontSize: "14px ",  
-        textTransform: "uppercase", 
-        fontFamily: "'Poppins', sans-serif", 
+        fontSize: "14px ",
+        textTransform: "uppercase",
+        fontFamily: "'Poppins', sans-serif",
         display: "flex",
         "& .MuiButton-startIcon": {
           display: "flex",
           marginRight: "4px",
         },
-      }}  
+      }}
       startIcon={<DeleteForeverIcon />}
       onClick={onClear}
-    >
-      {text}
-    </Button>
+    ></Button>
   );
 }

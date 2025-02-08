@@ -128,11 +128,13 @@ export function ShoppingList() {
         <InputQuantity value={newQuantity} onChange={setNewQuantity} />
         <IncrementButton onClear={buttonIncrement} />
       </div>
-      <div className="addButonList"> 
-      <AddToListButton text="Adicionar" onClear={AddItem} />
+      <div className="addButonList">
+        <AddToListButton text="Adicionar" onClear={AddItem} />
       </div>
-      <SubTitle text="Itens na Lista" />
-      <ClearListButton text="Limpar Lista" onClear={RemoveList} />
+      <div className="subTitleAndClearList">
+        <SubTitle text="Itens na Lista" />
+        <ClearListButton onClear={RemoveList} />
+      </div>
       <ul>
         {itemsNaoComprados.map((item, id) => (
           <li key={id}>
@@ -145,9 +147,10 @@ export function ShoppingList() {
           </li>
         ))}
       </ul>
-
-      <SubTitle text="Itens Comprados" />
-      <ClearListButton text="Limpar Lista" onClear={RemoveListComprado} />
+      <div className="subTitleAndClearList">
+        <SubTitle text="Itens Comprados" />
+        <ClearListButton onClear={RemoveListComprado} />
+      </div>
       <ul>
         {itemsComprados.map((item, id) => (
           <li className="itensComprados" key={id}>

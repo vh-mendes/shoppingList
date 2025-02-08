@@ -12,6 +12,9 @@ export function InputQuantity({ value,onChange}: InputQuantityProps) {
       value={value === 0 ? "" : value} // Se for 0, fica vazio
       onChange={(e) => onChange(Number(e.target.value))}
       label="Qtd"
+      InputLabelProps={{
+        shrink: true, 
+      }}
       sx={{
         width: "80px",
         fontFamily: "'Poppins', sans-serif",
@@ -40,6 +43,9 @@ export function InputQuantity({ value,onChange}: InputQuantityProps) {
           color: "#f6c01c",
           fontWeight: "bold",
           fontFamily: "Poppins"
+        },
+        "& .MuiInputLabel-root.Mui-focused": {
+          color: "#f6c01c", // Garante que o label mantenha a cor fixa quando focado
         },
         
       }}
