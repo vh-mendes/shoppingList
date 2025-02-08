@@ -21,6 +21,7 @@
   gap: 10px;            
   align-items: center;  
   justify-content: center;
+  
 }
 
 .addButonList {
@@ -36,3 +37,108 @@
   justify-content: center;
   gap: 10px;
 }
+
+.shopping-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto; /* Centraliza horizontalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os itens no eixo principal */
+  justify-content: center; /* Alinha os itens no meio */
+}
+
+/* Estiliza cada item da lista */
+.shopping-list-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff7e6; /* Fundo suave */
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  max-width: 100%;
+  width: 60%;
+}
+
+.shopping-list-item:hover {
+  transform: scale(1.02); /* Pequeno efeito ao passar o mouse */
+}
+
+/* Nome do item */
+.item-name {
+  font-weight: bold;
+  color: #333;
+  flex: 1; /* Faz o nome ocupar o máximo possível */
+}
+
+/* Quantidade */
+.item-quantity {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  margin-right: 30px;
+}
+
+/* Estiliza os botões */
+.actions {
+  display: flex;
+  gap: 8px; /* Espaçamento entre os botões */
+}
+
+.remove-button, .mark-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.mark-button {
+  background-color: #4caf50; /* Verde para marcar */
+  color: white;
+}
+
+
+/* Checkbox */
+.shopping-list-item input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #f6c01c;
+}
+
+/* Nome do item normal */
+.item-name {
+  font-weight: bold;
+  color: #333;
+  flex: 1;
+}
+
+/* Efeito ao marcar o item */
+.item-name.checked {
+  text-decoration: line-through;
+  color: white
+}
+
+.shopping-list-item.checked {
+  background-color: #594721; /* Verde claro */
+}
+
+.shopping-list-item.checked .item-name {
+  text-decoration: line-through;
+  color: white
+}
+
+@media (max-width: 480px) {
+  .shopping-list-item {
+    text-align: center;
+    padding: 16px;
+    width: 100%;
+  }
+}
+
+

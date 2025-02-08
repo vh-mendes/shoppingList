@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Alert } from "@mui/material";
 import { AddToListButton } from "./AddToListButton";
 import { ClearListButton } from "./ClearListButton";
+import { ClearItemButton } from "./ClearItemButton";
 import { DecrementButton } from "./DecrementButton";
 import { IncrementButton } from "./IncrementButton";
 import { InputQuantity } from "./InputQuantity";
@@ -135,33 +136,42 @@ export function ShoppingList() {
         <SubTitle text="Itens na Lista" />
         <ClearListButton onClear={RemoveList} />
       </div>
-      <ul>
-        {itemsNaoComprados.map((item, id) => (
-          <li key={id}>
-            {item.nome}
-            <input type="number" value={item.quantidade}></input>
-            <button onClick={() => RemoveItem(item.id)}>Remover</button>{" "}
-            <button onClick={() => ItemComprado(item.id)}>
-              {item.comprado ? "Desmarcar" : "Marcar como Comprado"}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <ul className="shopping-list">
+  {itemsNaoComprados.map((item, id) => (
+    <li className="shopping-list-item" key={id}>
+            <input 
+        type="checkbox" 
+        checked={item.comprado} 
+        onChange={() => ItemComprado(item.id)} 
+      />
+      <span className="item-name">{item.nome}</span>
+      <span className="item-quantity">Quantidade: {item.quantidade}</span>
+      <div className="actions">
+      <ClearItemButton onClear={() => RemoveItem(item.id)} />
+      </div>
+    </li>
+  ))}
+</ul>
       <div className="subTitleAndClearList">
         <SubTitle text="Itens Comprados" />
         <ClearListButton onClear={RemoveListComprado} />
       </div>
-      <ul>
-        {itemsComprados.map((item, id) => (
-          <li className="itensComprados" key={id}>
-            {item.nome} - Quantidade: {item.quantidade}
-            <button onClick={() => RemoveItem(item.id)}> Remover</button>{" "}
-            <button onClick={() => ItemComprado(item.id)}>
-              {item.comprado ? "Desmarcar" : "Marcar como Comprado"}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <ul className="shopping-list">
+  {itemsComprados.map((item, id) => (
+    <li className="shopping-list-item checked" key={id}>
+      <input 
+        type="checkbox" 
+        checked={item.comprado} 
+        onChange={() => ItemComprado(item.id)} 
+      />
+      <span className="item-name">{item.nome}</span>
+      <span className="item-quantity">Quantidade: {item.quantidade}</span>
+      <div className="actions">
+      <ClearItemButton onClear={() => RemoveItem(item.id)} />
+      </div>
+    </li>
+  ))}
+</ul>
     </div>
   );
 }
