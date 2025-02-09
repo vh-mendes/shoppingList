@@ -166,7 +166,7 @@ export function ShoppingList() {
             />
             <span className="itemName">{item.nome}</span>
             <span className="itemQuantityChecked">Qtd: {item.quantidade}</span>
-            <div className="actions">
+            <div className="clearItemButton">
               <ClearItemButton onClear={() => RemoveItem(item.id)} />
             </div>
           </li>
