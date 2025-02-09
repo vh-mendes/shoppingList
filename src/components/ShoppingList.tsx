@@ -145,7 +145,7 @@ export function ShoppingList() {
         onChange={() => ItemComprado(item.id)} 
       />
       <span className="item-name">{item.nome}</span>
-      <span className="item-quantity">Quantidade: {item.quantidade}</span>
+      <span className="item-quantity">Qtd: {item.quantidade}</span>
       <div className="actions">
       <ClearItemButton onClear={() => RemoveItem(item.id)} />
       </div>
@@ -165,7 +165,7 @@ export function ShoppingList() {
         onChange={() => ItemComprado(item.id)} 
       />
       <span className="item-name">{item.nome}</span>
-      <span className="item-quantity-checked">Quantidade: {item.quantidade}</span>
+      <span className="item-quantity-checked">Qtd: {item.quantidade}</span>
       <div className="actions">
       <ClearItemButton onClear={() => RemoveItem(item.id)} />
       </div>

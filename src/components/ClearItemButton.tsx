@@ -17,7 +17,7 @@ export function ClearItemButton({ onClear }: ClearItemProps) {
         textTransform: "uppercase",
         fontFamily: "'Poppins', sans-serif",
         display: "flex",
-        padding: "3px",
+        padding: "2px",
         "& .MuiButton-startIcon": {
           display: "flex",
           marginRight: "2px",
