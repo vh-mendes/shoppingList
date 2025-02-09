@@ -3,7 +3,7 @@
 }
 
 .alerts {
-  margin-bottom: 20px;
+  margin-bottom: 35px;
   max-width: 100%;
   display: flex;
   justify-content: center;
@@ -91,7 +91,7 @@
 /* Estiliza os botões */
 .actions {
   display: flex;
-  gap: 8px; /* Espaçamento entre os botões */
+  margin-right: 15px;
 }
 
 .remove-button, .mark-button {
@@ -132,7 +132,7 @@
 }
 
 .shopping-list-item.checked {
-  background-color: #dfad42; /* Verde claro */
+  background-color: #7a5d1d; /* Verde claro */
 }
 
 .shopping-list-item.checked .item-name {
