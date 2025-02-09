@@ -5,7 +5,7 @@ interface InputItemProps {
   onChange: (value: string) => void;
 }
 
-export function InputItem({ value, onChange}: InputItemProps) {
+export function InputItem({ value, onChange }: InputItemProps) {
   return (
     <TextField
       type="text"
@@ -14,7 +14,7 @@ export function InputItem({ value, onChange}: InputItemProps) {
       label="Item"
       placeholder="Digite para adicionar um item"
       InputLabelProps={{
-        shrink: true, 
+        shrink: true,
       }}
       sx={{
         width: "225px",
@@ -25,10 +25,10 @@ export function InputItem({ value, onChange}: InputItemProps) {
           borderRadius: "8px",
           "& fieldset": {
             borderColor: "#f6c01c",
-            borderWidth: "2px"
+            borderWidth: "2px",
           },
           "&:hover fieldset": {
-            borderColor: "#f6c01c", 
+            borderColor: "#f6c01c",
           },
           "&.Mui-focused fieldset": {
             borderColor: "#f6c01c",
@@ -38,12 +38,12 @@ export function InputItem({ value, onChange}: InputItemProps) {
           textAlign: "center",
           fontWeight: "bold",
           color: "#333",
-          padding: "10px 10px", 
+          padding: "10px 10px",
         },
         "& .MuiInputLabel-root": {
           color: "#f6c01c",
           fontWeight: "bold",
-          fontFamily: "Poppins"
+          fontFamily: "Poppins",
         },
         "& .MuiInputLabel-root.Mui-focused": {
           color: "#f6c01c", // Garante que o label mantenha a cor fixa quando focado

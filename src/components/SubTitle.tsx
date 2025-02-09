@@ -1,12 +1,9 @@
-import '../styles/subTitleStyles.css';
-
+import "../styles/subTitleStyles.css";
 
 interface SubTitleProps {
-    text: string;
+  text: string;
 }
 
-export function SubTitle ({text}: SubTitleProps) {
-    return (
-        <h2 className="subTitle">{text}</h2>
-    )
-    }
+export function SubTitle({ text }: SubTitleProps) {
+  return <h2 className="subTitle">{text}</h2>;
+}

@@ -136,42 +136,42 @@ export function ShoppingList() {
         <SubTitle text="Itens na Lista" />
         <ClearListButton onClear={RemoveList} />
       </div>
-      <ul className="shopping-list">
-  {itemsNaoComprados.map((item, id) => (
-    <li className="shopping-list-item" key={id}>
-            <input 
-        type="checkbox" 
-        checked={item.comprado} 
-        onChange={() => ItemComprado(item.id)} 
-      />
-      <span className="item-name">{item.nome}</span>
-      <span className="item-quantity">Qtd: {item.quantidade}</span>
-      <div className="actions">
-      <ClearItemButton onClear={() => RemoveItem(item.id)} />
-      </div>
-    </li>
-  ))}
-</ul>
+      <ul className="shoppingList">
+        {itemsNaoComprados.map((item, id) => (
+          <li className="shoppingListItem" key={id}>
+            <input
+              type="checkbox"
+              checked={item.comprado}
+              onChange={() => ItemComprado(item.id)}
+            />
+            <span className="itemName">{item.nome}</span>
+            <span className="itemQuantity">Qtd: {item.quantidade}</span>
+            <div className="clearItemButton">
+              <ClearItemButton onClear={() => RemoveItem(item.id)} />
+            </div>
+          </li>
+        ))}
+      </ul>
       <div className="subTitleAndClearList">
         <SubTitle text="Itens Comprados" />
         <ClearListButton onClear={RemoveListComprado} />
       </div>
-      <ul className="shopping-list">
-  {itemsComprados.map((item, id) => (
-    <li className="shopping-list-item checked" key={id}>
-      <input 
-        type="checkbox" 
-        checked={item.comprado} 
-        onChange={() => ItemComprado(item.id)} 
-      />
-      <span className="item-name">{item.nome}</span>
-      <span className="item-quantity-checked">Qtd: {item.quantidade}</span>
-      <div className="actions">
-      <ClearItemButton onClear={() => RemoveItem(item.id)} />
-      </div>
-    </li>
-  ))}
-</ul>
+      <ul className="shoppingList">
+        {itemsComprados.map((item, id) => (
+          <li className="shoppingListItem checked" key={id}>
+            <input
+              type="checkbox"
+              checked={item.comprado}
+              onChange={() => ItemComprado(item.id)}
+            />
+            <span className="itemName">{item.nome}</span>
+            <span className="itemQuantityChecked">Qtd: {item.quantidade}</span>
+            <div className="actions">
+              <ClearItemButton onClear={() => RemoveItem(item.id)} />
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

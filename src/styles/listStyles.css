@@ -17,15 +17,14 @@
 }
 
 .inputQuantity {
-  display: flex;        
-  gap: 10px;            
-  align-items: center;  
+  display: flex;
+  gap: 10px;
+  align-items: center;
   justify-content: center;
-  
 }
 
 .addButonList {
-  margin-top: 30px; 
+  margin-top: 30px;
   align-items: center;
   text-align: center;
   margin-bottom: 20px;
@@ -38,21 +37,20 @@
   gap: 10px;
 }
 
-.shopping-list {
+.shoppingList {
   list-style: none;
   padding: 0;
-  margin: 0 auto; /* Centraliza horizontalmente */
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza os itens no eixo principal */
-  justify-content: center; /* Alinha os itens no meio */
+  align-items: center;
+  justify-content: center;
 }
 
-/* Estiliza cada item da lista */
-.shopping-list-item {
+.shoppingListItem {
   display: flex;
   align-items: center;
-  background-color: #fff7e6; /* Fundo suave */
+  background-color: #fff7e6;
   padding: 12px;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -62,55 +60,36 @@
   width: 30%;
 }
 
-.shopping-list-item:hover {
-  transform: scale(1.02); /* Pequeno efeito ao passar o mouse */
+.shoppingListItem:hover {
+  transform: scale(1.02);
 }
 
-/* Nome do item */
-.item-name {
+.itemName {
   font-weight: bold;
   color: #333;
-  flex: 1; /* Faz o nome ocupar o máximo possível */
+  flex: 1;
 }
 
-/* Quantidade */
-.item-quantity {
+.itemQuantity {
   margin-left: 10px;
   font-size: 0.9rem;
   color: #666;
   margin-right: 30px;
 }
 
-.item-quantity-checked {
+.itemQuantityChecked {
   margin-left: 10px;
   font-size: 0.9rem;
   color: white;
   margin-right: 30px;
 }
 
-/* Estiliza os botões */
-.actions {
+.clearItemButton {
   display: flex;
   margin-right: 15px;
 }
 
-.remove-button, .mark-button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background 0.3s;
-}
-
-.mark-button {
-  background-color: #4caf50; /* Verde para marcar */
-  color: white;
-}
-
-
-/* Checkbox */
-.shopping-list-item input[type="checkbox"] {
+.shoppingListItem input[type="checkbox"] {
   margin-right: 10px;
   width: 18px;
   height: 18px;
@@ -118,35 +97,33 @@
   accent-color: #f6c01c;
 }
 
-/* Nome do item normal */
-.item-name {
+.itemName {
   font-weight: bold;
   color: #333;
   flex: 1;
 }
 
-/* Efeito ao marcar o item */
-.item-name.checked {
+.itemName.checked {
   text-decoration: line-through;
-  color: white
+  color: white;
 }
 
-.shopping-list-item.checked {
-  background-color: #7a5d1d; /* Verde claro */
+.shoppingListItem.checked {
+  background-color: #7a5d1d;
 }
 
-.shopping-list-item.checked .item-name {
+.shoppingListItem.checked .itemName {
   text-decoration: line-through;
-  color: white
+  color: white;
 }
 
 @media (max-width: 480px) {
-  .shopping-list-item {
+  .shoppingListItem {
     text-align: center;
     padding: 16px;
     width: 100% !important;
   }
-  .shopping-list-item input[type="checkbox"] {
+  .shoppingListItem input[type="checkbox"] {
     margin-left: 15px;
     width: 18px;
     height: 18px;
@@ -156,7 +133,7 @@
 }
 
 @media (max-width: 750px) {
-  .shopping-list-item {
+  .shoppingListItem {
     text-align: center;
     padding: 16px;
     width: 100%;
@@ -164,15 +141,15 @@
 }
 
 @media (max-width: 1000px) {
-  .shopping-list-item {
+  .shoppingListItem {
     text-align: center;
     padding: 16px;
-    width: 50%;
+    width: 70%;
   }
 }
 
 @media (max-width: 400px) {
-  .shopping-list-item {
+  .shoppingListItem {
     text-align: center;
     padding: 16px;
     width: 100%;

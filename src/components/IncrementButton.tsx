@@ -18,7 +18,7 @@ export function IncrementButton({ onClear }: IncrementButtonProps) {
         "& .MuiButton-startIcon": {
           display: "flex",
           marginRight: "4px",
-          fontWeight: "bold"
+          fontWeight: "bold",
         },
       }}
       startIcon={<AddIcon />}

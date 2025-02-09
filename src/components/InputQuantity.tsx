@@ -5,7 +5,7 @@ interface InputQuantityProps {
   onChange: (value: number) => void;
 }
 
-export function InputQuantity({ value,onChange}: InputQuantityProps) {
+export function InputQuantity({ value, onChange }: InputQuantityProps) {
   return (
     <TextField
       type="number"
@@ -13,7 +13,7 @@ export function InputQuantity({ value,onChange}: InputQuantityProps) {
       onChange={(e) => onChange(Number(e.target.value))}
       label="Qtd"
       InputLabelProps={{
-        shrink: true, 
+        shrink: true,
       }}
       sx={{
         width: "80px",
@@ -24,10 +24,10 @@ export function InputQuantity({ value,onChange}: InputQuantityProps) {
           borderRadius: "8px",
           "& fieldset": {
             borderColor: "#f6c01c",
-            borderWidth: "2px"
+            borderWidth: "2px",
           },
           "&:hover fieldset": {
-            borderColor: "#f6c01c", 
+            borderColor: "#f6c01c",
           },
           "&.Mui-focused fieldset": {
             borderColor: "#f6c01c",
@@ -37,17 +37,16 @@ export function InputQuantity({ value,onChange}: InputQuantityProps) {
           textAlign: "center",
           fontWeight: "bold",
           color: "#333",
-          padding: "10px 10px", 
+          padding: "10px 10px",
         },
         "& .MuiInputLabel-root": {
           color: "#f6c01c",
           fontWeight: "bold",
-          fontFamily: "Poppins"
+          fontFamily: "Poppins",
         },
         "& .MuiInputLabel-root.Mui-focused": {
           color: "#f6c01c", // Garante que o label mantenha a cor fixa quando focado
         },
-        
       }}
     />
   );

@@ -19,7 +19,7 @@ export function DecrementButton({ onClear, disabled }: DecrementButtonProps) {
         "& .MuiButton-startIcon": {
           display: "flex",
           marginRight: "4px",
-          fontWeight: "bold"
+          fontWeight: "bold",
         },
       }}
       startIcon={<HorizontalRuleIcon />}
