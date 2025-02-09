@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { Alert } from "@mui/material";
+import { Alerts } from "./Alerts";
 import { AddToListButton } from "./AddToListButton";
 import { ClearListButton } from "./ClearListButton";
-import { ClearItemButton } from "./ClearItemButton";
 import { DecrementButton } from "./DecrementButton";
 import { IncrementButton } from "./IncrementButton";
+import { ItemList } from "./ItemList";
 import { InputQuantity } from "./InputQuantity";
 import { InputItem } from "./InputItem";
 import { SubTitle } from "./SubTitle";
@@ -13,7 +13,15 @@ import "../styles/listStyles.css";
 export function ShoppingList() {
   const [items, setItems] = useState<
     { id: number; nome: string; quantidade: number; comprado: boolean }[]
-  >(JSON.parse(localStorage.getItem("items") || "[]")); //Armazeno os itens da lista
+  >(() => {
+    try {
+      const storedItems = localStorage.getItem("items");
+      return storedItems ? JSON.parse(storedItems) : [];
+    } catch (error) {
+      console.error("Erro ao carregar itens do localStorage:", error);
+      return []; // Retorna um array vazio em caso de erro
+    }
+  }); //Armazeno os itens da lista
   const [newItem, setNewItem] = useState<string>("");
   const [newQuantity, setNewQuantity] = useState<number>(1);
   const [error, setError] = useState<string>("");
@@ -113,10 +121,7 @@ export function ShoppingList() {
   return (
     <div>
       <div className="alerts">
-        {error && <Alert severity="error">{error}</Alert>}
-        {/*Se houver erro, exibe a mensagem de erro*/}
-        {sucess && <Alert severity="success">{sucess}</Alert>}
-        {/*Se houver sucesso, exibe a mensagem de sucesso*/}
+        <Alerts error={error} success={sucess} />
       </div>
       <div className="inputItem">
         <InputItem value={newItem} onChange={setNewItem} />
@@ -136,42 +141,20 @@ export function ShoppingList() {
         <SubTitle text="Itens na Lista" />
         <ClearListButton onClear={RemoveList} />
       </div>
-      <ul className="shoppingList">
-        {itemsNaoComprados.map((item, id) => (
-          <li className="shoppingListItem" key={id}>
-            <input
-              type="checkbox"
-              checked={item.comprado}
-              onChange={() => ItemComprado(item.id)}
-            />
-            <span className="itemName">{item.nome}</span>
-            <span className="itemQuantity">Qtd: {item.quantidade}</span>
-            <div className="clearItemButton">
-              <ClearItemButton onClear={() => RemoveItem(item.id)} />
-            </div>
-          </li>
-        ))}
-      </ul>
+      <ItemList
+        items={itemsNaoComprados}
+        onToggle={ItemComprado}
+        onRemove={RemoveItem}
+      />
       <div className="subTitleAndClearList">
         <SubTitle text="Itens Comprados" />
         <ClearListButton onClear={RemoveListComprado} />
       </div>
-      <ul className="shoppingList">
-        {itemsComprados.map((item, id) => (
-          <li className="shoppingListItem checked" key={id}>
-            <input
-              type="checkbox"
-              checked={item.comprado}
-              onChange={() => ItemComprado(item.id)}
-            />
-            <span className="itemName">{item.nome}</span>
-            <span className="itemQuantityChecked">Qtd: {item.quantidade}</span>
-            <div className="clearItemButton">
-              <ClearItemButton onClear={() => RemoveItem(item.id)} />
-            </div>
-          </li>
-        ))}
-      </ul>
+      <ItemList
+        items={itemsComprados}
+        onToggle={ItemComprado}
+        onRemove={RemoveItem}
+      />
     </div>
   );
 }
