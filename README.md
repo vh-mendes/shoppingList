@@ -14,7 +14,12 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 
 💾 localStorage
 
-📦 Instalação
+## ▶️ Deploy: 
+
+https://lista-de-compras-tan-nine.vercel.app/
+
+
+## 📦 Instalação
 
 ## Clone o repositório e instale as dependências:
 
