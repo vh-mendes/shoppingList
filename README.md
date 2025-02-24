@@ -21,8 +21,6 @@ https://lista-de-compras-tan-nine.vercel.app/
 
 ## 📦 Instalação
 
-## Clone o repositório e instale as dependências:
-
 Clone o repositório
 git clone https://github.com/seu-usuario/shopping-list.git
 
