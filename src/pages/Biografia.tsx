@@ -12,8 +12,8 @@ function Biografia() {
         alt="Foto de Vítor Hugo"
       />
       <p className="descricao">
-        Olá! Meu nome é Vítor Hugo Mendes, nascido em 2005, atualmente trabalho como
-        analista de suporte do ERP Protheus, da TOTVS, na empresa Cooprata. Sou
+        Olá! Meu nome é Vítor Hugo Mendes, nascido em 2005. Atualmente trabalho como
+        analista de sistema do ERP Protheus (TOTVS) na empresa Cooprata. Sou
         estudante de análise e desenvolvimento de sistemas e apaixonado pela
         tecnologia. 
         Meu foco é a experiência do usuário, e tenho interesse especial
@@ -21,10 +21,10 @@ function Biografia() {
         usabilidade. <br></br><br></br>Tenho uma enorme facilidade em encontrar soluções criativas
         e resolver problemas, o que me motiva a buscar sempre novos desafios na
         área de TI. 
-         Este é um projeto simples que fiz para demonstrar minhas
+        Este é um projeto simples que fiz para demonstrar minhas
         habilidades no desenvolvimento de aplicativos mobile e web utilizando
         React e React Native, juntamente de frameworks como Vite e Expo. Espero
-        que goste! 😉
+        que goste, e se quiser souber um pouco mais sobre mim e meus projetos, é só clicar nos links abaixo! 😉
       </p>
       <div className="RedesSociais"> 
       <a className="linkRedesSociaisLinkedin" href="https://www.linkedin.com/in/v%C3%ADtor-hugo-mendes-163a91336/" target="_blank" rel="noopener noreferrer">
