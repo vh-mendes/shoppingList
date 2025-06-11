@@ -63,6 +63,21 @@
   gap: 5px;
 }
 
+.btnWhatsapp {
+  display: flex;
+  align-items: center;
+  background-color: #35a94a;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  gap: 5px;
+}
+
 .btnIcon {
   width: 50px;
   height: 50px;
@@ -73,6 +88,10 @@
 }
 
 .linkRedesSociaisGit {
+  text-decoration: none;
+}
+
+.linkRedesSociaisWhatsapp {
   text-decoration: none;
 }
 
@@ -89,17 +108,22 @@
   }
 
   .btnLinkedin,
-  .btnGitHub {
+  .btnGitHub,
+  .btnWhatsapp {
     padding: 10px 20px;
     font-size: 18px;
   }
-    
+
   .linkRedesSociaisLinkedin :hover {
     background-color: #0a4f91;
   }
 
   .linkRedesSociaisGit :hover {
     background-color: #1b1f23;
+  }
+
+  .linkRedesSociaisWhatsapp :hover {
+    background-color: #1e8530;
   }
 
   .btnIcon {
@@ -109,9 +133,9 @@
 }
 
 /* Ajuste para telas de celular, por exemplo */
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .descricao {
-    font-size:16px;
+    font-size: 16px;
     line-height: 1.5;
   }
   .fotoVitor {
@@ -124,7 +148,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .title {
     font-family: "Poppins", serif;
     font-weight: 800;
@@ -132,7 +156,7 @@
     text-align: center;
     margin-top: 30px;
   }
-  
+
   .RedesSociais {
     display: flex;
     justify-content: center;
@@ -140,7 +164,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
   }
-  
+
   .btnLinkedin {
     display: flex;
     align-items: center;
@@ -153,13 +177,13 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    gap: 5px; 
+    gap: 5px;
   }
 
   .btnGitHub {
     display: flex;
     align-items: center;
-    background-color: #282828; 
+    background-color: #282828;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -168,13 +192,11 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    gap: 5px; 
+    gap: 5px;
   }
-  
+
   .btnIcon {
-    width: 50px; 
+    width: 50px;
     height: 50px;
   }
-  
 }
-
